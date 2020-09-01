@@ -1,0 +1,48 @@
+.clock {
+  height: 350px;
+  width: 350px;
+  border-radius: 50%;
+  background: #000000bb;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.clock__indicator__main {
+  position: absolute;
+  width: 2px;
+  background: none;
+  transform-origin: bottom center;
+  z-index: 2;
+  border-radius: 1px;
+  opacity: 1;
+  height: 168px;
+  margin-left: 134px;
+  border-top: 7px solid white;
+}
+.clock__indicator__secondary {
+  position: absolute;
+  width: 2px;
+  background: none;
+  transform-origin: bottom center;
+  z-index: 2;
+  border-radius: 1px;
+  opacity: 1;
+  height: 173px;
+  margin-left: 134px;
+  border-top: 2px solid #4b9aaa;
+}
+.clock__axis {
+  background: #4b9aaa;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  margin-left: 170px;
+  margin-top: 170px;
+}
+
+@keyframes time {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
