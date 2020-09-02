@@ -38,7 +38,6 @@ export default class CurrentWeather extends React.Component {
   };
 
   createWeatherHTML = (currentDay) => {
-    let today = new Date().getDay();
     this.setState({
       temp: this.kelvinToFahrenheit(currentDay.current.temp),
       real_feel: this.kelvinToFahrenheit(currentDay.current.feels_like),
