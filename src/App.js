@@ -3,6 +3,7 @@ import Greeting from './Greeting/Greeting';
 import Date from './Date/Date';
 import Weather from './Weather/Weather';
 import Clock from './Date/Clock/Clock';
+import Countdown from './Countdown/Countdown';
 import Moment from 'moment';
 import './App.css';
 
@@ -47,6 +48,7 @@ export default class App extends React.Component {
         </header>
         <section className="App-body">
           <Weather />
+          <Countdown />
         </section>
         <footer className="App-footer">
           <Greeting timeOfDay={this.state.timeOfDay} />

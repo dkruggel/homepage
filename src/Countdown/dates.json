@@ -1,0 +1,8 @@
+{
+  "dates": [
+    { "Event": "New Years Day", "Date": "01-01-2021" },
+    { "Event": "Ella's Birthday", "Date": "01-31-2021" },
+    { "Event": "Elijah's Birthday", "Date": "04-18-2021" },
+    { "Event": "Halloween", "Date": "10-31-2020" }
+  ]
+}
