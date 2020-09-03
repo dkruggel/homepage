@@ -4,7 +4,7 @@ import Moment from 'moment';
 
 export default class Countdown extends React.Component {
   render() {
-    let newDates = [];
+    // let newDates = [];
     dates.dates.map((event, index) => {
       let difference = Moment(event.Date, 'MM-DD-YYYY').fromNow();
       console.log(`${event.Event}: ${event.Date}  ${difference}`);
