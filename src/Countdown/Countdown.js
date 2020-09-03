@@ -9,16 +9,36 @@ export default class Countdown extends React.Component {
   }
 
   render() {
+    let newDates = dates.dates
+      .sort((a, b) => Moment(a.Date) - Moment(b.Date))
+      .slice(0, 3);
     return (
-      <div>
-        {dates.dates.map((event, index) => {
+      <div style={{ padding: '0px' }}>
+        {newDates.map((event, index) => {
           let difference = this.daysRemaining(event.Date);
-          //console.log(event.Event + ': ' + this.daysRemaining(event.Date));
           return (
-            <div key={index}>
-              <h6>
+            <div
+              key={index}
+              style={{
+                fontSize: '1.5em',
+                paddingLeft: '0.125em',
+                paddingTop: '0.25em',
+                display: 'flex',
+                flexDirection: 'column',
+                width: '20em',
+              }}
+            >
+              <div
+                key={index}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'flex-end',
+                  margin: '0.125em',
+                }}
+              >
                 {event.Event}: {event.Date} &nbsp; {difference} days
-              </h6>
+              </div>
             </div>
           );
         })}

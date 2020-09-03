@@ -9,6 +9,7 @@ export default class CurrentWeather extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      time: Date.now(),
       temp: 0,
       real_feel: 0,
       condition: '',
@@ -17,8 +18,15 @@ export default class CurrentWeather extends React.Component {
     };
   }
 
+  intervalID;
+
   componentDidMount() {
+    this.retrieveForecast();
+  }
+
+  retrieveForecast() {
     this.getForecast().then((forecast) => this.renderForecast(forecast));
+    this.intervalID = setTimeout(this.retrieveForecast.bind(this), 15 * 1000);
   }
 
   kelvinToFahrenheit = (k) => (((k - 273.15) * 9) / 5 + 32).toFixed(2);
