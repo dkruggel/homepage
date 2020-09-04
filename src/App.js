@@ -2,7 +2,7 @@ import React from 'react';
 import Greeting from './Greeting/Greeting';
 import Date from './Date/Date';
 import Weather from './Weather/Weather';
-import Clock from './Date/Clock/Clock';
+import Clock from './Clock/Clock';
 import Countdown from './Countdown/Countdown';
 import Moment from 'moment';
 import './App.css';

@@ -15,7 +15,7 @@ export default class Countdown extends React.Component {
     return (
       <div style={{ padding: '0px' }}>
         {newDates.map((event, index) => {
-          let difference = this.daysRemaining(event.Date);
+          let difference = this.daysRemaining(event.Date) + 1;
           return (
             <div
               key={index}
