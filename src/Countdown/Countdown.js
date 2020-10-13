@@ -5,17 +5,18 @@ import Moment from 'moment';
 export default class Countdown extends React.Component {
   daysRemaining(eventDate) {
     let e = Moment(eventDate);
-    return e.diff(Moment(), 'days');
+    return Math.ceil(e.diff(Moment(), 'days', true));
   }
 
   render() {
     let newDates = dates.dates
-      .sort((a, b) => Moment(a.Date) - Moment(b.Date))
+      .filter(a => Moment().diff(a.Date) < 0)
+      .sort((a,b) => Moment(a.Date).diff(b.Date))
       .slice(0, 3);
     return (
       <div style={{ padding: '0px' }}>
         {newDates.map((event, index) => {
-          let difference = this.daysRemaining(event.Date) + 1;
+          let difference = this.daysRemaining(event.Date);
           return (
             <div
               key={index}
