@@ -80,7 +80,7 @@ export default class CurrentWeather extends React.Component {
         </div>
         <div style={{ display: 'flex', margin: '0.5em', alignItems: 'center' }}>
           Condition: {this.state.condition}{' '}
-          <img id="weather-icon" src={this.state.icon} alt="weather icon" />
+          <img id='weather-icon' src={this.state.icon} alt='weather icon' />
         </div>
         <div
           style={{

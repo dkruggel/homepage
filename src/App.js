@@ -36,22 +36,22 @@ export default class App extends React.Component {
     } else {
       this.setState({ timeOfDay: 'Evening' });
     }
-    document.title = Moment().format('ddd yy.MM.DD HH.mm a');
+    document.title = Moment().format('ddd yy.MM.DD h.mm a');
     this.intervalID = setTimeout(this.getTimeOfDay.bind(this), 100);
   };
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className='App'>
+        <header className='App-header'>
           <Date />
           <Clock />
         </header>
-        <section className="App-body">
+        <section className='App-body'>
           <Weather />
           <Countdown />
         </section>
-        <footer className="App-footer">
+        <footer className='App-footer'>
           <Greeting timeOfDay={this.state.timeOfDay} />
         </footer>
       </div>
