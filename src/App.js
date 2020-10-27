@@ -36,7 +36,8 @@ export default class App extends React.Component {
     } else {
       this.setState({ timeOfDay: 'Evening' });
     }
-    this.intervalID = setTimeout(this.getTimeOfDay.bind(this), 60 * 1000);
+    document.title = Moment().format('ddd yy.MM.DD HH.mm a');
+    this.intervalID = setTimeout(this.getTimeOfDay.bind(this), 100);
   };
 
   render() {
