@@ -12,6 +12,7 @@ export default class CurrentWeather extends React.Component {
       time: Date.now(),
       temp: 0,
       real_feel: 0,
+      title_temp: 0,
       condition: '',
       icon: '',
       daily: [],
@@ -32,7 +33,7 @@ export default class CurrentWeather extends React.Component {
     );
   }
 
-  kelvinToFahrenheit = (k) => (((k - 273.15) * 9) / 5 + 32).toFixed(2);
+  kelvinToFahrenheit = (k, d=2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
 
   getForecast = async () => {
     const urlToFetch = `${weatherUrl_OneCall}?&lat=38.838159&lon=-90.724872&exclude=minutely,hourly&appid=${openWeatherKey}`;
@@ -52,6 +53,7 @@ export default class CurrentWeather extends React.Component {
     this.setState({
       temp: this.kelvinToFahrenheit(currentDay.current.temp),
       real_feel: this.kelvinToFahrenheit(currentDay.current.feels_like),
+      title_temp: `${this.kelvinToFahrenheit(currentDay.current.temp, 0)}°|${this.kelvinToFahrenheit(currentDay.current.feels_like, 0)}°`,
       condition: currentDay.current.weather[0].description,
       icon:
         'https://openweathermap.org/img/wn/' +
@@ -66,6 +68,8 @@ export default class CurrentWeather extends React.Component {
   };
 
   render() {
+    document.title = moment().format(`ddd yy.MM.DD h.mm a ${this.state.title_temp}`);
+
     return (
       <div
         style={{
