@@ -19,7 +19,7 @@ export default class Clock extends React.Component {
     return (
       <>
         <div>
-          <h1 className='time'>{Moment().format('HH.mm.ssa')}</h1>
+          <h1 className='time'>{Moment().format('h.mm.ssa')}</h1>
         </div>
         {/* <div className="clock__container">
         <div className="clock">
