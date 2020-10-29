@@ -1,10 +1,10 @@
 import React from 'react';
 import './Clock.css';
 import Moment from 'moment';
-import SecondHand from './SecondHand';
-import MinuteHand from './MinuteHand';
-import HourHand from './HourHand';
-import Indicator from './Indicator';
+// import SecondHand from './SecondHand';
+// import MinuteHand from './MinuteHand';
+// import HourHand from './HourHand';
+// import Indicator from './Indicator';
 
 export default class Clock extends React.Component {
   constructor(props) {
@@ -17,7 +17,11 @@ export default class Clock extends React.Component {
 
   render() {
     return (
-      <div className="clock__container">
+      <>
+        <div>
+          <h1 className='time'>{Moment().format('HH.mm.ssa')}</h1>
+        </div>
+        {/* <div className="clock__container">
         <div className="clock">
           <SecondHand />
           <MinuteHand />
@@ -29,7 +33,8 @@ export default class Clock extends React.Component {
             })}
           </ul>
         </div>
-      </div>
+      </div> */}
+      </>
     );
   }
 }

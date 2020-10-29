@@ -1,8 +1,13 @@
-.clock {
+.time {
+  font-size: calc(10px + 15vmin);
+  padding-right: 20px;
+  margin-block-start: 0px;
+}
+
+/* .clock {
   height: 350px;
   width: 350px;
   border-radius: 50%;
-  /* border: white solid 1px; */
   background: #000000bb;
   margin-right: 20px;
   margin-top: 20px;
@@ -46,4 +51,4 @@
   to {
     transform: rotateZ(360deg);
   }
-}
+} */
