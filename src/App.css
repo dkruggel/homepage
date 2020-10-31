@@ -54,7 +54,7 @@
 }
 
 .App-body {
-  margin-top: -15em;
+  margin-top: calc(-20vmin);
   display: flex;
   flex-direction: column;
 }
