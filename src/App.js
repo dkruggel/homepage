@@ -48,7 +48,9 @@ export default class App extends React.Component {
         </header>
         <section className='App-body'>
           <Weather />
-          <Countdown />
+          <div className='countdown'>
+            <Countdown />
+          </div>
         </section>
         <footer className='App-footer'>
           <Greeting timeOfDay={this.state.timeOfDay} />

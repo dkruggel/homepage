@@ -56,7 +56,18 @@
 .App-body {
   margin-top: calc(-20vmin);
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 2px white solid; */
+}
+
+.countdown {
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 1.75em;
+  margin-top: 11.5em;
+  /* border: 2px white solid; */
 }
 
 .App-footer {
