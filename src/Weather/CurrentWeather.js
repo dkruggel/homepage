@@ -33,7 +33,7 @@ export default class CurrentWeather extends React.Component {
     );
   }
 
-  kelvinToFahrenheit = (k, d=2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
+  kelvinToFahrenheit = (k, d = 2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
 
   getForecast = async () => {
     const urlToFetch = `${weatherUrl_OneCall}?&lat=38.838159&lon=-90.724872&exclude=minutely,hourly&appid=${openWeatherKey}`;
@@ -53,7 +53,10 @@ export default class CurrentWeather extends React.Component {
     this.setState({
       temp: this.kelvinToFahrenheit(currentDay.current.temp),
       real_feel: this.kelvinToFahrenheit(currentDay.current.feels_like),
-      title_temp: `${this.kelvinToFahrenheit(currentDay.current.temp, 0)}°|${this.kelvinToFahrenheit(currentDay.current.feels_like, 0)}°`,
+      title_temp: `${this.kelvinToFahrenheit(
+        currentDay.current.temp,
+        0
+      )}°|${this.kelvinToFahrenheit(currentDay.current.feels_like, 0)}°`,
       condition: currentDay.current.weather[0].description,
       icon:
         'https://openweathermap.org/img/wn/' +
@@ -68,7 +71,9 @@ export default class CurrentWeather extends React.Component {
   };
 
   render() {
-    document.title = moment().format(`ddd yy.MM.DD hh.mma ${this.state.title_temp}`);
+    document.title = moment().format(
+      `ddd yy.MM.DD hh.mma ${this.state.title_temp}`
+    );
 
     return (
       <div
@@ -90,10 +95,11 @@ export default class CurrentWeather extends React.Component {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '15.5em',
+            width: '21em',
           }}
         >
           {this.state.daily.map((day, index) => {
+            // console.log(iconURL);
             return (
               <div
                 key={index}
@@ -107,6 +113,24 @@ export default class CurrentWeather extends React.Component {
                 <div>{moment().add(index, 'days').format('dddd')}: &nbsp;</div>
                 <div>{this.kelvinToFahrenheit(day.temp.max)}°F &ensp; </div>
                 <div>{this.kelvinToFahrenheit(day.temp.min)}°F</div>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    width: '5.5em',
+                  }}
+                >
+                  <div>&nbsp;&nbsp;{day.weather[0].main}</div>
+                  <img
+                    src={
+                      'https://openweathermap.org/img/wn/' +
+                      day.weather[0].icon +
+                      '@2x.png'
+                    }
+                    style={{ height: '1.375em' }}
+                    alt='weather icon'
+                  />
+                </div>
               </div>
             );
           })}
