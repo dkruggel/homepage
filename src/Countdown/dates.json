@@ -2,6 +2,8 @@
   "dates": [
     { "Event": "New Years Day", "Date": "2021-01-01" },
     { "Event": "Ella's Birthday", "Date": "2021-01-31" },
+    { "Event": "Valentine's Day", "Date": "2021-02-14" },
+    { "Event": "St. Patrick's Day", "Date": "2021-03-17" },
     { "Event": "Elijah's Birthday", "Date": "2021-04-18" },
     { "Event": "Memorial Day", "Date": "2021-05-31" },
     { "Event": "Heather's Birthday", "Date": "2021-08-30" },
