@@ -12,7 +12,7 @@ export default class Countdown extends React.Component {
     let newDates = dates.dates
       .filter(a => Moment().diff(a.Date) < 0)
       .sort((a,b) => Moment(a.Date).diff(b.Date))
-      .slice(0, 5);
+      .slice(0, 8);
     return (
       <div style={{ padding: '0px' }}>
         {newDates.map((event, index) => {
