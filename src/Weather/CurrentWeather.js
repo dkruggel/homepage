@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 const openWeatherKey = '6102a812da477a662eca40c6b33cf325';
-// const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const weatherUrl_OneCall = 'https://api.openweathermap.org/data/2.5/onecall';
 
 export default class CurrentWeather extends React.Component {
