@@ -10,8 +10,8 @@ export default class Countdown extends React.Component {
 
   render() {
     let newDates = dates.dates
-      .filter(a => Moment().diff(a.Date) < 0)
-      .sort((a,b) => Moment(a.Date).diff(b.Date))
+      .filter((a) => Moment().diff(a.Date) < 0)
+      .sort((a, b) => Moment(a.Date).diff(b.Date))
       .slice(0, 5);
     return (
       <div style={{ padding: '0px' }}>
@@ -38,7 +38,17 @@ export default class Countdown extends React.Component {
                   margin: '0.125em',
                 }}
               >
-                {event.Event}: {event.Date} &nbsp; {difference} days
+                <div>
+                  {event.Event}: {event.Date} &nbsp;
+                </div>
+                <div>
+                  {difference.toString().length === 1
+                    ? '\u00A0\u00A0\u00A0' + difference.toString()
+                    : difference.toString().length === 2
+                    ? '\u00A0\u00A0' + difference.toString()
+                    : difference.toString()}{' '}
+                  {difference === 1 ? 'day\u00A0' : 'days'}
+                </div>
               </div>
             </div>
           );
