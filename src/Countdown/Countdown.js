@@ -12,7 +12,7 @@ export default class Countdown extends React.Component {
     let newDates = dates.dates
       .filter((a) => Moment().diff(a.Date) < 0)
       .sort((a, b) => Moment(a.Date).diff(b.Date))
-      .slice(0, 6);
+      .slice(0, 10);
     return (
       <div style={{ padding: '0px' }}>
         {newDates.map((event, index) => {
@@ -22,32 +22,30 @@ export default class Countdown extends React.Component {
               key={index}
               style={{
                 fontSize: '1.5em',
-                paddingLeft: '0.125em',
-                paddingTop: '0.25em',
-                display: 'flex',
-                flexDirection: 'column',
-                width: '20.5em',
+                marginBottom: '0.4375em',
               }}
             >
               <div
-                key={index}
                 style={{
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'flex-end',
-                  margin: '0.125em',
                 }}
               >
-                <div>
-                  {event.Event}: {event.Date} &nbsp;
+                <div style={{ marginRight: '0.1875em' }}>{event.Event}:</div>
+                <div>{event.Date}</div>
+                <div
+                  style={{
+                    marginLeft: '0.25em',
+                    marginRight: '0.1875em',
+                    width: '2.5em',
+                    textAlign: 'end',
+                  }}
+                >
+                  {difference.toString()}
                 </div>
-                <div>
-                  {difference.toString().length === 1
-                    ? '\u00A0\u00A0\u00A0' + difference.toString()
-                    : difference.toString().length === 2
-                    ? '\u00A0\u00A0' + difference.toString()
-                    : difference.toString()}{' '}
-                  {difference === 1 ? 'day\u00A0' : 'days'}
+                <div style={{ textAlign: 'start', width: '2.5em' }}>
+                  {difference === 1 ? 'day' : 'days'}
                 </div>
               </div>
             </div>
