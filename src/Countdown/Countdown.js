@@ -43,7 +43,7 @@ export default class Countdown extends React.Component {
                 </div>
                 <div>
                   {difference.toString().length === 1
-                    ? '\u00A0\u00A0\u00A0u00A0' + difference.toString()
+                    ? '\u00A0\u00A0\u00A0\u00A0' + difference.toString()
                     : difference.toString().length === 2
                     ? '\u00A0\u00A0' + difference.toString()
                     : difference.toString()}{' '}
