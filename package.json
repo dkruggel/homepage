@@ -1,8 +1,5 @@
 {
   "name": "homepage",
-  "productName": "Homepage",
-  "main": "public/electron.js",
-  "homepage": "./",
   "author": "David Kruggel",
   "version": "0.1.0",
   "description": "My start page",
@@ -11,7 +8,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "electron-is-dev": "^1.2.0",
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,23 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "build": {
-    "appId": "com.example.electron-cra",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    },
-    "publish": {
-      "provider": "github",
-      "repo": "homepage",
-      "owner": "dkruggel"
-    },
-    "extends": null
+    "eject": "react-scripts eject",
+    "dev": "nodemon react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "nodemon": "^2.0.12",
     "wait-on": "^5.2.0"
   }
 }

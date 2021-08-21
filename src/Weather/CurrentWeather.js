@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import WeatherDay from './WeatherDay';
+import WeatherHour from './WeatherHour';
 
 const openWeatherKey = '6102a812da477a662eca40c6b33cf325';
 const weatherUrl_OneCall = 'https://api.openweathermap.org/data/2.5/onecall';
@@ -15,6 +17,7 @@ export default class CurrentWeather extends React.Component {
       condition: '',
       icon: '',
       daily: [],
+      hourly: [],
     };
   }
 
@@ -35,12 +38,11 @@ export default class CurrentWeather extends React.Component {
   kelvinToFahrenheit = (k, d = 2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
 
   getForecast = async () => {
-    const urlToFetch = `${weatherUrl_OneCall}?&lat=38.838159&lon=-90.724872&exclude=minutely,hourly&appid=${openWeatherKey}`;
+    const urlToFetch = `${weatherUrl_OneCall}?&lat=38.838159&lon=-90.724872&exclude=minutely&appid=${openWeatherKey}`;
     try {
       const response = await fetch(urlToFetch);
       if (response.ok) {
         const jsonResponse = response.json();
-        // console.log(jsonResponse);
         return jsonResponse;
       }
     } catch (error) {
@@ -62,6 +64,7 @@ export default class CurrentWeather extends React.Component {
         currentDay.current.weather[0].icon +
         '@2x.png',
       daily: currentDay.daily,
+      hourly: currentDay.hourly,
     });
   };
 
@@ -94,45 +97,33 @@ export default class CurrentWeather extends React.Component {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '21em',
+            width: '22em',
           }}
         >
           {this.state.daily.map((day, index) => {
-            // console.log(iconURL);
-            return (
-              <div
-                key={index}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'flex-end',
-                  margin: '0.25em',
-                }}
-              >
-                <div>{moment().add(index, 'days').format('dddd')}: &nbsp;</div>
-                <div>{this.kelvinToFahrenheit(day.temp.max)}°F &ensp; </div>
-                <div>{this.kelvinToFahrenheit(day.temp.min)}°F</div>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    width: '5.5em',
-                  }}
-                >
-                  <div>&nbsp;&nbsp;{day.weather[0].main}</div>
-                  <img
-                    src={
-                      'https://openweathermap.org/img/wn/' +
-                      day.weather[0].icon +
-                      '@2x.png'
-                    }
-                    style={{ height: '1.375em' }}
-                    alt='weather icon'
-                  />
-                </div>
-              </div>
-            );
-          })}
+            return <WeatherDay weather={day} index={index} />;
+          }).slice(0, 1)}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '22em',
+          }}>
+          {this.state.hourly.map((hour, index) => {
+            return <WeatherHour weather={hour} index={index} />;
+          }).filter((a,i)=>i%2===0).slice(0, 4)}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '22em',
+          }}
+        >
+          {this.state.daily.map((day, index) => {
+            return <WeatherDay weather={day} index={index} />;
+          }).slice(1)}
         </div>
       </div>
     );
