@@ -23,7 +23,7 @@ export default class WeatherDay extends React.Component {
       >
         <div>{this.utcToLocal(this.props.weather.dt)}: &nbsp;</div>
         <div>{this.kelvinToFahrenheit(this.props.weather.temp)}°F &ensp; </div>
-        <div style={{width: '2.5em'}}>{this.roundPerc(this.props.weather.pop)}%</div>
+        <div style={{width: '2.5em'}}>{this.roundPerc(this.props.weather.pop * 100)}%</div>
         {/* <div>{this.kelvinToFahrenheit(this.props.weather.feels_like)}°F</div> */}
         <div
           style={{
