@@ -73,9 +73,7 @@ export default class CurrentWeather extends React.Component {
   };
 
   render() {
-    document.title = moment().format(
-      `ddd yy.MM.DD hh.mma ${this.state.title_temp}`
-    );
+    document.title = moment().format(`yy.MM.DD ${this.state.title_temp}`);
 
     return (
       <div
@@ -100,19 +98,11 @@ export default class CurrentWeather extends React.Component {
             width: '22em',
           }}
         >
-          {this.state.daily.map((day, index) => {
-            return <WeatherDay weather={day} index={index} />;
-          }).slice(0, 1)}
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '22em',
-          }}>
-          {this.state.hourly.map((hour, index) => {
-            return <WeatherHour weather={hour} index={index} />;
-          }).filter((a,i)=>i%2===0).slice(0, 4)}
+          {this.state.daily
+            .map((day, index) => {
+              return <WeatherDay weather={day} index={index} />;
+            })
+            .slice(0, 1)}
         </div>
         <div
           style={{
@@ -121,9 +111,25 @@ export default class CurrentWeather extends React.Component {
             width: '22em',
           }}
         >
-          {this.state.daily.map((day, index) => {
-            return <WeatherDay weather={day} index={index} />;
-          }).slice(1)}
+          {this.state.hourly
+            .map((hour, index) => {
+              return <WeatherHour weather={hour} index={index} />;
+            })
+            .filter((a, i) => i % 2 === 0)
+            .slice(0, 4)}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '22em',
+          }}
+        >
+          {this.state.daily
+            .map((day, index) => {
+              return <WeatherDay weather={day} index={index} />;
+            })
+            .slice(1)}
         </div>
       </div>
     );
