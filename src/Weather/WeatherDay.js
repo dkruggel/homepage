@@ -7,7 +7,6 @@ export default class WeatherDay extends React.Component {
   roundPerc = (p) => p.toFixed(0);
 
   render() {
-      console.log(this.props.weather.weather);
     return (
       <div
         key={this.props.index}
