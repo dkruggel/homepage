@@ -73,7 +73,7 @@ export default class CurrentWeather extends React.Component {
   };
 
   render() {
-    document.title = moment().format(`yy.MM.DD ${this.state.title_temp}`);
+    document.title = moment().format(`yy.MM.DD    ${this.state.title_temp}`);
 
     return (
       <div
