@@ -1,11 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+import { kelvinToCelsius } from '../Utilities/Functions';
 
 export default class WeatherDay extends React.Component {
-  kelvinToFahrenheit = (k, d = 2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
-
-  roundPerc = (p) => p.toFixed(0);
-
   render() {
     return (
       <div
@@ -21,9 +18,9 @@ export default class WeatherDay extends React.Component {
           {moment().add(this.props.index, 'days').format('dddd')}: &nbsp;
         </div>
         <div>
-          {this.kelvinToFahrenheit(this.props.weather.temp.max)}°F &ensp;{' '}
+          {kelvinToCelsius(this.props.weather.temp.max)}°F &ensp;{' '}
         </div>
-        <div>{this.kelvinToFahrenheit(this.props.weather.temp.min)}°F</div>
+        <div>{kelvinToCelsius(this.props.weather.temp.min)}°F</div>
         <div
           style={{
             display: 'flex',
