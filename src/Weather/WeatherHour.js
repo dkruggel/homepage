@@ -2,6 +2,8 @@ import React from 'react';
 
 export default class WeatherDay extends React.Component {
   kelvinToFahrenheit = (k, d = 2) => (((k - 273.15) * 9) / 5 + 32).toFixed(d);
+  
+  kelvinToCelsius = (k, d = 2) => (k - 273.15).toFixed(d);
 
   utcToLocal = (t) => {
       var d = new Date(t * 1000).getHours();
@@ -22,7 +24,7 @@ export default class WeatherDay extends React.Component {
         }}
       >
         <div>{this.utcToLocal(this.props.weather.dt)}: &nbsp;</div>
-        <div>{this.kelvinToFahrenheit(this.props.weather.temp)}°F &ensp; </div>
+        <div>{this.kelvinToCelsius(this.props.weather.temp)}°F &ensp; </div>
         <div style={{width: '2.5em'}}>{this.roundPerc(this.props.weather.pop * 100)}%</div>
         {/* <div>{this.kelvinToFahrenheit(this.props.weather.feels_like)}°F</div> */}
         <div
