@@ -43,7 +43,7 @@ export default function CurrentWeather() {
     if (isActive) {
         // Update the title
         document.title = moment().format(
-          `yy.MM.DD\u00A0\u00A0\u00A0${title_temp}`
+          `yy.MM.DD\u00A0\u00A0hh:mm\u00A0\u00A0${title_temp}`
         );
 
       interval = setInterval(() => {
