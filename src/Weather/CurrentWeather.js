@@ -93,7 +93,7 @@ export default function CurrentWeather() {
       }}
     >
       <div style={{ display: 'flex', margin: '0.5em' }}>
-        Current Temp: {temp}°F &emsp; Real Feel: {real_feel}°F
+        Current Temp: {temp}°C &emsp; Real Feel: {real_feel}°C
       </div>
       <div style={{ display: 'flex', margin: '0.5em', alignItems: 'center' }}>
         Condition: {condition}{' '}

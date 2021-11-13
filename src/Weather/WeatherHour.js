@@ -14,7 +14,7 @@ export default class WeatherDay extends React.Component {
         }}
       >
         <div>{utcToLocalFormatted(this.props.weather.dt)}: &nbsp;</div>
-        <div>{kelvinToCelsius(this.props.weather.temp)}°F &ensp; </div>
+        <div>{kelvinToCelsius(this.props.weather.temp)}°C &ensp; </div>
         <div style={{width: '2.5em'}}>{(this.props.weather.pop * 100).toFixed(0)}%</div>
         <div
           style={{

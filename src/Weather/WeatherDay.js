@@ -18,9 +18,9 @@ export default class WeatherDay extends React.Component {
           {moment().add(this.props.index, 'days').format('dddd')}: &nbsp;
         </div>
         <div>
-          {kelvinToCelsius(this.props.weather.temp.max)}°F &ensp;{' '}
+          {kelvinToCelsius(this.props.weather.temp.max)}°C &ensp;{' '}
         </div>
-        <div>{kelvinToCelsius(this.props.weather.temp.min)}°F</div>
+        <div>{kelvinToCelsius(this.props.weather.temp.min)}°C</div>
         <div
           style={{
             display: 'flex',
