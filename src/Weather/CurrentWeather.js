@@ -39,14 +39,10 @@ export default function CurrentWeather() {
 
   useEffect(() => {
     let interval = null;
+    let weatherInterval = null;
 
     if (isActive) {
-        // Update the title
-        document.title = moment().format(
-          `yy.MM.DD\u00A0\u00A0\u00A0${title_temp}`
-        );
-
-      interval = setInterval(() => {
+      weatherInterval = setInterval(() => {
         getForecast().then((forecast) => {
           setTemp(kelvinToCelsius(forecast.current.temp));
           setRealFeel(kelvinToCelsius(forecast.current.feels_like));
@@ -66,11 +62,22 @@ export default function CurrentWeather() {
           setHourly(forecast.hourly);
         });
       }, 120000);
+
+      // Update the title
+      interval = setInterval(() => {
+        document.title = moment().format(
+          `yy.MM.DD\u00A0\u00A0hh:mm\u00A0\u00A0${title_temp}`
+        );
+      }, 100);
     } else if (!isActive) {
+      clearInterval(weatherInterval);
       clearInterval(interval);
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(weatherInterval);
+      clearInterval(interval);
+    };
   }, [isActive, title_temp]);
 
   return (
