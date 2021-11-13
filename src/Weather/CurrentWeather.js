@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import WeatherDay from './WeatherDay';
 import WeatherHour from './WeatherHour';
-import { kelvinToCelsius, getForecast, utcToLocal } from '../Utilities/Functions';
+import {
+  kelvinToCelsius,
+  getForecast,
+  utcToLocal,
+} from '../Utilities/Functions';
 
 export default function CurrentWeather() {
   const [temp, setTemp] = useState(0);
