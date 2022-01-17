@@ -1,6 +1,6 @@
 {
   "dates": [
-    { "Event": "New Years Day", "Date": "2022-01-01" },
+    { "Event": "New Years Day", "Date": "2023-01-01" },
     { "Event": "Teresa's Birthday", "Date": "2022-01-28" },
     { "Event": "Ella's Birthday", "Date": "2022-01-31" },
     { "Event": "Corey's Birthday", "Date": "2022-02-07" },
@@ -8,10 +8,12 @@
     { "Event": "St. Patrick's Day", "Date": "2022-03-17" },
     { "Event": "Sophie's Birthday", "Date": "2022-04-09" },
     { "Event": "Elijah's Birthday", "Date": "2022-04-18" },
+    { "Event": "Mother's Day", "Date": "2022-05-08" },
     { "Event": "Kate's Birthday", "Date": "2022-05-14" },
     { "Event": "Henry's Birthday", "Date": "2022-05-24" },
     { "Event": "Memorial Day", "Date": "2022-05-30" },
     { "Event": "Mom's Birthday", "Date": "2022-06-02" },
+    { "Event": "Father's Day", "Date": "2022-06-19" },
     { "Event": "Cyrus's Birthday", "Date": "2022-07-17" },
     { "Event": "Dad's Birthday", "Date": "2022-07-24" },
     { "Event": "Pete's Birthday", "Date": "2022-07-28" },
@@ -23,7 +25,7 @@
     { "Event": "Olivia's Birthday", "Date": "2022-10-31" },
     { "Event": "Halloween", "Date": "2022-10-31" },
     { "Event": "Glenn's Birthday", "Date": "2022-11-09" },
-    { "Event": "Thanksgiving", "Date": "2021-11-25" },
-    { "Event": "Christmas", "Date": "2021-12-25" }
+    { "Event": "Thanksgiving", "Date": "2022-11-24" },
+    { "Event": "Christmas", "Date": "2022-12-25" }
   ]
 }
