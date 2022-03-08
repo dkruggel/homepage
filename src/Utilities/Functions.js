@@ -2,11 +2,18 @@ const openWeatherKey = '6102a812da477a662eca40c6b33cf325';
 const weatherUrl_OneCall = 'https://api.openweathermap.org/data/2.5/onecall';
 
 function kelvinToFahrenheit(k, d = 2) {
-  return (((k - 273.15) * 9) / 5 + 32).toFixed(d);
+  return noNegativeZeroes((((k - 273.15) * 9) / 5 + 32).toFixed(d), d);
 }
 
 function kelvinToCelsius(k, d = 2) {
-  return (k - 273.15).toFixed(d);
+  return noNegativeZeroes((k - 273.15).toFixed(d), d);
+}
+
+function noNegativeZeroes(a, b) {
+  if (Math.abs(a) == 0 && b == 0) {
+    a = 0;
+  }
+  return a;
 }
 
 function getForecast() {
