@@ -10,7 +10,7 @@ function kelvinToCelsius(k, d = 2) {
 }
 
 function noNegativeZeroes(a, b) {
-  if (Math.abs(a) == 0 && b == 0) {
+  if (Math.abs(a) === 0 && b === 0) {
     a = 0;
   }
   return a;
